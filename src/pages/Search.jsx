@@ -1,10 +1,12 @@
 import React from 'react'
+import Layout from '../components/Layout/Layout'
 
-const Search = () => {
+const Search
+ = () => {
   return (
-    <div>
+    <Layout>
       Seach page
-    </div>
+    </Layout>
   )
 }
 
