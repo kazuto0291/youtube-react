@@ -4,6 +4,7 @@ import {fetchSelectedData} from '../../apis/index'
 import { Store} from '../../store/index'
 import VideoPlay from '../VideoPlay/VideoPlay'
 import Style from './VideoDetaill.module.scss'
+import Linkify from 'react-linkify'
 
 const VideoDetaill = () => {
   const {globalState, setGlobalState} = useContext(Store)
@@ -26,7 +27,9 @@ const VideoDetaill = () => {
       <VideoPlay id={globalState.selected.id} />
       <p>{globalState.selected.snippet.title} </p>
       <hr/>
-      <pre>{globalState.selected.snippet.description} </pre>
+      <Linkify>
+        <pre>{globalState.selected.snippet.description} </pre>
+      </Linkify>
     </div>
   ) : (<span>no data</span>)
 }
