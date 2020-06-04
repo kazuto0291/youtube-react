@@ -23,8 +23,8 @@ const Top = () => {
               <VideoGridItem
                 id={popular.id}
                 key={popular.id}
-                src={popular.snippet.thumbnails.standard.url}
-                thitle={popular.snippet.title} />
+                src={popular.snippet.thumbnails.medium.url}
+                title={popular.snippet.title} />
             )
           })
         }
