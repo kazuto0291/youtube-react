@@ -13,7 +13,11 @@ const Header = () => {
       </div>
       <div className={Style.item}>
         <form>
-          <input type="text" placeholder="検索" />
+          <input
+            type="text"
+            placeholder="検索"
+            onChange={e => setTerm(e.target.value)}
+            value={term} />
           <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
         </form>
       </div>
