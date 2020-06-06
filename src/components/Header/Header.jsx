@@ -9,10 +9,16 @@ import { Store } from '../../store/index'
 const Header = () => {
   const [term, setTerm] = useState('')
   const history = useHistory()
+  const { globalState, setGlobalState } = useContext(Store)
   const handleSubmit = e => {
     e.preventDefault()
+    setGlobalState({type: 'SET_TERM', payload: {term}})
     history.push(`/seach?query=${term}`)
   }
+  useEffect(() => {
+    setTerm(globalState.term)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   return (
     <div className={Style.header}>
       <div className={Style.item}>
