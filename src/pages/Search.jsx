@@ -22,7 +22,7 @@ const Search = () => {
   useEffect(() => {
     setSearchResult()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [location.searched])
   return (
     <Layout>
       <VideoGrid>
