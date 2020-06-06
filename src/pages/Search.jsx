@@ -3,9 +3,11 @@ import Layout from '../components/Layout/Layout'
 import { useLocation} from 'react-router-dom'
 import { fetchSearchData } from '../apis'
 import { Store } from '../store/index'
+import VideoGrid from '../components/VideoGrid/VideoGrid'
+import VideoGridItem from '../components/VideoGridItem/VideoGridItem'
 
 const Search = () => {
-  const {gloalState, setGlobalState} = useContext(Store)
+  const {globalState, setGlobalState} = useContext(Store)
   const location = useLocation()
   const setSearchResult = async () => {
     const searchParams = new URLSearchParams(location.search)
@@ -23,7 +25,19 @@ const Search = () => {
   }, [])
   return (
     <Layout>
-      Seach page
+      <VideoGrid>
+        {
+          globalState.searched ? globalState.searched.map((search) => {
+            return (
+              <VideoGridItem
+              id={search.id.videoId}
+              key={search.id.videoId}
+              src={search.snippet.thumbnails.medium.url}
+              title={search.snippet.title}/>
+            )
+          }) : <span> no data</span>
+        }
+      </VideoGrid>
     </Layout>
   )
 }
