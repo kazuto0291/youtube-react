@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router-dom'
 import Style from './Header.module.scss'
 import {useHistory} from 'react-router-dom'
+import { Store } from '../../store/index'
 
 const Header = () => {
   const [term, setTerm] = useState('')
